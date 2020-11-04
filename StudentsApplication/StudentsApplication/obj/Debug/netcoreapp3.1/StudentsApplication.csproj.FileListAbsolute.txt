@@ -48,3 +48,14 @@ C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsA
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\StudentsApplication.deps.json
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\StudentsApplication.runtimeconfig.json
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\StudentsApplication.runtimeconfig.dev.json
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\StudentsApplication.dll
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\StudentsApplication.pdb
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.dll
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.pdb
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.genruntimeconfig.cache
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.csproj.CoreCompileInputs.cache
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.MvcApplicationPartsAssemblyInfo.cache

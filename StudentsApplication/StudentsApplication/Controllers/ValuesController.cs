@@ -29,6 +29,7 @@ namespace StudentsApplication.Controllers
             var key = entity.FindPrimaryKey();
             var properties = entity.GetProperties();
 
+            return Ok();
         }
     }
 }
