@@ -1,0 +1,9 @@
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CoreCompileInputs.cache

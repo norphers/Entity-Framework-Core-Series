@@ -4,14 +4,16 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace StudentsApplication.Migrations
 {
     [DbContext(typeof(StudentContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20201105101921_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,6 +30,9 @@ namespace StudentsApplication.Migrations
 
                     b.Property<int?>("Age")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("AnotherKeyProperty")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsRegularStudent")
                         .ValueGeneratedOnAdd()
@@ -46,31 +51,27 @@ namespace StudentsApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("31d0b276-f175-4d6d-bc3f-afa8777caf8f"),
+                            Id = new Guid("752b1c8b-0674-437e-8bbc-7fe1cfe7dfb5"),
                             Age = 30,
+                            AnotherKeyProperty = new Guid("00000000-0000-0000-0000-000000000000"),
                             IsRegularStudent = false,
                             Name = "John Doe"
                         },
                         new
                         {
-                            Id = new Guid("3287a62e-9f49-4655-ae0e-ba0ac04630be"),
+                            Id = new Guid("eb5da8aa-f7b3-489b-9c73-2253de285ffc"),
                             Age = 25,
+                            AnotherKeyProperty = new Guid("00000000-0000-0000-0000-000000000000"),
                             IsRegularStudent = false,
                             Name = "Jane Doe"
                         },
                         new
                         {
-                            Id = new Guid("cee77ebd-82eb-436b-a018-5f6affa11c89"),
+                            Id = new Guid("be0de541-9d5d-4b58-af0f-2192ba3eea4c"),
                             Age = 28,
+                            AnotherKeyProperty = new Guid("00000000-0000-0000-0000-000000000000"),
                             IsRegularStudent = false,
                             Name = "Mike Miles"
-                        },
-                        new
-                        {
-                            Id = new Guid("a7df0328-d0c1-48bf-9a07-f1b80eb2b41f"),
-                            Age = 29,
-                            IsRegularStudent = false,
-                            Name = "Angela Green"
                         });
                 });
 #pragma warning restore 612, 618

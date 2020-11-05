@@ -4,14 +4,16 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace StudentsApplication.Migrations
 {
     [DbContext(typeof(StudentContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20201105102038_DeletedAnotherStudentKey")]
+    partial class DeletedAnotherStudentKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,31 +48,24 @@ namespace StudentsApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("31d0b276-f175-4d6d-bc3f-afa8777caf8f"),
+                            Id = new Guid("3398544f-756e-476b-8839-88a5a5cdf6e6"),
                             Age = 30,
                             IsRegularStudent = false,
                             Name = "John Doe"
                         },
                         new
                         {
-                            Id = new Guid("3287a62e-9f49-4655-ae0e-ba0ac04630be"),
+                            Id = new Guid("be2b5622-bfc4-40e8-bce1-fa8fbcb814e6"),
                             Age = 25,
                             IsRegularStudent = false,
                             Name = "Jane Doe"
                         },
                         new
                         {
-                            Id = new Guid("cee77ebd-82eb-436b-a018-5f6affa11c89"),
+                            Id = new Guid("7a393d79-ec68-4292-ac62-45c7f26c18d1"),
                             Age = 28,
                             IsRegularStudent = false,
                             Name = "Mike Miles"
-                        },
-                        new
-                        {
-                            Id = new Guid("a7df0328-d0c1-48bf-9a07-f1b80eb2b41f"),
-                            Age = 29,
-                            IsRegularStudent = false,
-                            Name = "Angela Green"
                         });
                 });
 #pragma warning restore 612, 618

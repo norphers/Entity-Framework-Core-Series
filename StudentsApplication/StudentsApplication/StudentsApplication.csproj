@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201104153349_InitialMigration.cs" />
+    <Compile Remove="Migrations\20201104153349_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20201105093920_TestMigrationFromSeparateProject.cs" />
+    <Compile Remove="Migrations\20201105093920_TestMigrationFromSeparateProject.Designer.cs" />
+    <Compile Remove="Migrations\20201105095842_SeedInitialData.cs" />
+    <Compile Remove="Migrations\20201105095842_SeedInitialData.Designer.cs" />
+    <Compile Remove="Migrations\20201105101603_AdditionalRowInserted.cs" />
+    <Compile Remove="Migrations\20201105101603_AdditionalRowInserted.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
@@ -13,6 +24,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
 
