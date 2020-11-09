@@ -9,7 +9,9 @@ namespace Entities
     {
         [Column("StudentId")]
         public Guid Id { get; set; }
+
         //public Guid AnotherKeyProperty { get; set; }
+        
         [Required] //field 'Name' can't be nullable
         [MaxLength(12, ErrorMessage = "Length must be less than 12 characters")] //limiting the length of that column in the database
         public string Name { get; set; }       
@@ -18,5 +20,6 @@ namespace Entities
 
         //One-to-One relationship
         public StudentDetails StudentDetails { get; set; }
+
     }
 }
