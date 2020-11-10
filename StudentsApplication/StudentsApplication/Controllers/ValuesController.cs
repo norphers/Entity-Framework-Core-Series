@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Entities;
+using System.Linq;
 
 namespace StudentsApplication.Controllers
 {
@@ -18,16 +19,21 @@ namespace StudentsApplication.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //logic with the injected _context object.
-            var entity = _context.Model
-                .FindEntityType(typeof(Student).FullName);
+            /* STEP 1
+            //first part where we access the Student table in the database via the DbSet<Student> Students property
+            var students = _context.Students
+                .AsNoTracking() 
+               //second part of the query where we use a LINQ command to select only required rows
+               .Where(s => s.Age > 25)
+               //third part executes this query
+               .ToList();
+            */
 
-            var tableName = entity.GetTableName();
-            var schemaName = entity.GetSchema();
-            var key = entity.FindPrimaryKey();
-            var properties = entity.GetProperties();
-
-            return Ok();
+            var students = _context.Students
+                .Include(e => e.Evaluations)
+                .FirstOrDefault();
+            
+            return Ok(students);
         }
     }
 }

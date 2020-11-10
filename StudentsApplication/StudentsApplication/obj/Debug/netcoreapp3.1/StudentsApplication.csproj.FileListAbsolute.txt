@@ -57,7 +57,5 @@ C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsA
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.pdb
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.genruntimeconfig.cache
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.csproj.CoreCompileInputs.cache
-C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\obj\Debug\netcoreapp3.1\StudentsApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\Entities.dll
 C:\Users\ocana\Documents\Web Developement\Entity-Framework-Core-Series\StudentsApplication\StudentsApplication\bin\Debug\netcoreapp3.1\Entities.pdb
