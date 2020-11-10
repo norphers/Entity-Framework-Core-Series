@@ -31,8 +31,10 @@ namespace StudentsApplication.Controllers
 
             var students = _context.Students
                 .Include(e => e.Evaluations)
+                .Include(ss => ss.StudentSubjects)
+                .ThenInclude(s => s.Subject)
                 .FirstOrDefault();
-            
+
             return Ok(students);
         }
     }

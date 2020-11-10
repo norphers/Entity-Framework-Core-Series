@@ -15,6 +15,8 @@ namespace Entities
         {
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
             modelBuilder.ApplyConfiguration(new StudentSubjectConfiguration());
+            modelBuilder.ApplyConfiguration(new SubjectConfiguration());
+            modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
         }
 
         public DbSet<Student> Students { get; set;}
