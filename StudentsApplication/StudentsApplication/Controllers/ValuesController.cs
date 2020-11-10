@@ -4,6 +4,8 @@ using Entities;
 
 namespace StudentsApplication.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ValuesController : ControllerBase
     {
         private readonly StudentContext _context;
