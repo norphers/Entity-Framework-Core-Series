@@ -29,13 +29,29 @@ namespace StudentsApplication.Controllers
                .ToList();
             */
 
+            /*
             var students = _context.Students
                 .Include(e => e.Evaluations)
                 .Include(ss => ss.StudentSubjects)
                 .ThenInclude(s => s.Subject)
                 .FirstOrDefault();
+            */
 
-            return Ok(students);
+            var student = _context.Students.FirstOrDefault();
+            _context.Entry(student)
+                .Collection(e => e.Evaluations)
+                .Load();
+            _context.Entry(student)
+                .Collection(ss => ss.StudentSubjects)
+                .Load();
+            foreach (var studentSubject in student.StudentSubjects)
+            {
+                _context.Entry(studentSubject)
+                    .Reference(s => s.Subject)
+                    .Load();
+            }
+            
+            return Ok(student);
         }
     }
 }
