@@ -15,16 +15,16 @@ namespace StudentsApplication.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.9")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("Entities.Evaluation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("EvaluationId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("EvaluationId");
 
                     b.Property<string>("AdditionalExplanation")
                         .HasColumnType("nvarchar(max)");
@@ -40,14 +40,44 @@ namespace StudentsApplication.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("Evaluation");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0de77365-1ebd-425f-83e6-9d006313e6a7"),
+                            AdditionalExplanation = "First test...",
+                            Grade = 5,
+                            StudentId = new Guid("660ed4cd-1361-4216-9faa-9636e4df681a")
+                        },
+                        new
+                        {
+                            Id = new Guid("b790ee5c-9ded-4bc7-97cd-8359bb6fbc7f"),
+                            AdditionalExplanation = "Second test...",
+                            Grade = 4,
+                            StudentId = new Guid("660ed4cd-1361-4216-9faa-9636e4df681a")
+                        },
+                        new
+                        {
+                            Id = new Guid("2de534dd-025c-4704-8807-35bca79db05b"),
+                            AdditionalExplanation = "First test...",
+                            Grade = 3,
+                            StudentId = new Guid("410c14e3-e6df-45b8-8c6f-1e19aed675ac")
+                        },
+                        new
+                        {
+                            Id = new Guid("2d1c94b4-f01b-4ef9-8757-73819ffcb062"),
+                            AdditionalExplanation = "Last test...",
+                            Grade = 2,
+                            StudentId = new Guid("4addc421-0937-45cb-b55c-200b45c6caca")
+                        });
                 });
 
             modelBuilder.Entity("Entities.Student", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("StudentId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("StudentId");
 
                     b.Property<int?>("Age")
                         .HasColumnType("int");
@@ -59,8 +89,8 @@ namespace StudentsApplication.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(12)")
-                        .HasMaxLength(12);
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.HasKey("Id");
 
@@ -94,8 +124,8 @@ namespace StudentsApplication.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("StudentDetailsId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("StudentDetailsId");
 
                     b.Property<string>("AdditionalInformation")
                         .HasColumnType("nvarchar(max)");
@@ -127,14 +157,46 @@ namespace StudentsApplication.Migrations
                     b.HasIndex("SubjectId");
 
                     b.ToTable("StudentSubject");
+
+                    b.HasData(
+                        new
+                        {
+                            StudentId = new Guid("660ed4cd-1361-4216-9faa-9636e4df681a"),
+                            SubjectId = new Guid("7e69e207-5131-4791-9064-57f6d3c47fc8")
+                        },
+                        new
+                        {
+                            StudentId = new Guid("660ed4cd-1361-4216-9faa-9636e4df681a"),
+                            SubjectId = new Guid("89fc9e5d-74f6-4d2e-ae82-76f2b1decce7")
+                        },
+                        new
+                        {
+                            StudentId = new Guid("660ed4cd-1361-4216-9faa-9636e4df681a"),
+                            SubjectId = new Guid("9e5f12c2-0aa2-49b0-9db2-7df40fecf9ad")
+                        },
+                        new
+                        {
+                            StudentId = new Guid("410c14e3-e6df-45b8-8c6f-1e19aed675ac"),
+                            SubjectId = new Guid("fee204f4-a51d-44bb-a3d7-dcc2b5ee5d4f")
+                        },
+                        new
+                        {
+                            StudentId = new Guid("410c14e3-e6df-45b8-8c6f-1e19aed675ac"),
+                            SubjectId = new Guid("7e69e207-5131-4791-9064-57f6d3c47fc8")
+                        },
+                        new
+                        {
+                            StudentId = new Guid("4addc421-0937-45cb-b55c-200b45c6caca"),
+                            SubjectId = new Guid("fee204f4-a51d-44bb-a3d7-dcc2b5ee5d4f")
+                        });
                 });
 
             modelBuilder.Entity("Entities.Subject", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("SubjectId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("SubjectId");
 
                     b.Property<string>("SubjectName")
                         .HasColumnType("nvarchar(max)");
@@ -142,6 +204,28 @@ namespace StudentsApplication.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Subject");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("7e69e207-5131-4791-9064-57f6d3c47fc8"),
+                            SubjectName = "Math"
+                        },
+                        new
+                        {
+                            Id = new Guid("89fc9e5d-74f6-4d2e-ae82-76f2b1decce7"),
+                            SubjectName = "English"
+                        },
+                        new
+                        {
+                            Id = new Guid("9e5f12c2-0aa2-49b0-9db2-7df40fecf9ad"),
+                            SubjectName = "History"
+                        },
+                        new
+                        {
+                            Id = new Guid("fee204f4-a51d-44bb-a3d7-dcc2b5ee5d4f"),
+                            SubjectName = "Computer Science"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Evaluation", b =>
@@ -151,6 +235,8 @@ namespace StudentsApplication.Migrations
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("Entities.StudentDetails", b =>
@@ -160,6 +246,8 @@ namespace StudentsApplication.Migrations
                         .HasForeignKey("Entities.StudentDetails", "StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("Entities.StudentSubject", b =>
@@ -175,6 +263,24 @@ namespace StudentsApplication.Migrations
                         .HasForeignKey("SubjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Student");
+
+                    b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("Entities.Student", b =>
+                {
+                    b.Navigation("Evaluations");
+
+                    b.Navigation("StudentDetails");
+
+                    b.Navigation("StudentSubjects");
+                });
+
+            modelBuilder.Entity("Entities.Subject", b =>
+                {
+                    b.Navigation("StudentSubjects");
                 });
 #pragma warning restore 612, 618
         }

@@ -22,7 +22,7 @@ namespace Entities
                     catch (Exception ex)
                     {
                         // log errors or do anything you thing its needed
-                        throw ex; //in the tutorial didn't use 'ex' in this code row
+                        throw; //in the tutorial didn't use 'ex' in this code row
                     }
                 }
             }

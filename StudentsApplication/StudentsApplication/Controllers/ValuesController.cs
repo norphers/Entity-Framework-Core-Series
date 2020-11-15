@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Entities;
+using System.Linq;
 
 namespace StudentsApplication.Controllers
 {
@@ -18,16 +19,128 @@ namespace StudentsApplication.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //logic with the injected _context object.
-            var entity = _context.Model
-                .FindEntityType(typeof(Student).FullName);
+            //1-UNDERSTANDING QUERIES
 
-            var tableName = entity.GetTableName();
-            var schemaName = entity.GetSchema();
-            var key = entity.FindPrimaryKey();
-            var properties = entity.GetProperties();
+            //first part where we access the Student table in the database via the DbSet<Student> Students property 
+            //var students = _context.Students
+            //    .AsNoTracking() 
+            //   second part of the query where we use a LINQ command to select only required rows
+            //   .Where(s => s.Age > 25)
+            //   third part executes this query
+            //   .ToList();
 
-            return Ok();
+
+            //2-RELATIONAL QUERIES WITH EAGER LOADING
+
+            //var students = _context.Students
+            //    .Include(e => e.Evaluations)
+            //    .Include(ss => ss.StudentSubjects)
+            //    .ThenInclude(s => s.Subject)
+            //    .FirstOrDefault();
+
+
+            //3-RELATIONAL QUERIES WITH EXPLICIT LOADING
+
+            //3.1 - WITH Load()
+
+            //var student = _context.Students.FirstOrDefault();
+            //_context.Entry(student)
+            //    .Collection(e => e.Evaluations)
+            //    .Load();
+
+            //_context.Entry(student)
+            //    .Collection(ss => ss.StudentSubjects)
+            //    .Load();
+
+            //foreach (var studentSubject in student.StudentSubjects)
+            //{
+            //    _context.Entry(studentSubject)
+            //        .Reference(s => s.Subject)
+            //        .Load();
+            //}
+
+            //3.2 - WITH Query()
+
+            //var student = _context.Students.FirstOrDefault();
+
+            //var evaluationsCount = _context.Entry(student)
+            //    .Collection(e => e.Evaluations)
+            //    .Query()
+            //    .Count();
+
+            //var gradesPerStudent = _context.Entry(student)
+            //    .Collection(e => e.Evaluations)
+            //    .Query()
+            //    .Select(e => e.Grade)
+            //    .ToList();
+
+
+            //4-RELATIONAL QUERIES WITH SELECT (PROJECTION) LOADING
+
+            //var student = _context.Students
+            //    .Select(s => new
+            //    {
+            //        s.Name,
+            //        s.Age,
+            //        NumberOfEvaluations = s.Evaluations.Count
+            //    })
+            //    .ToList();
+
+
+            //5-CLIENT VS SERVER EVALUATION
+
+            //var student = _context.Students
+            //    .Where(s => s.Name.Equals("John Doe"))
+            //    .Select(s => new
+            //    {
+            //        s.Name,
+            //        s.Age,
+            //        Explanations = string.Join(",", s.Evaluations
+            //            .Select(e => e.AdditionalExplanation))
+            //    })
+            //    .FirstOrDefault();
+
+            //6-RAW SQL COMMANDS
+
+            //6.1-FromSqlRaw Method
+            //var student = _context.Students
+            //    .FromSqlRaw(@"SELECT * FROM Student WHERE Name = {0}", "John Doe")
+            //    .FirstOrDefault();
+
+            //we can also call stored procedures from a database
+            //var student = _context.Students
+            //    .FromSqlRaw("EXECUTE dbo.MyCustomProcedure")
+            //    .ToList();
+
+            //if we want to include relationships to our query
+            //var student = _context.Students
+            //    .FromSqlRaw("SELECT * FROM Student WHERE Name = {0}", "John Doe")
+            //    .Include(e => e.Evaluations)
+            //    .FirstOrDefault();
+            //return OK(student);
+
+            //6.2-ExecuteSqlRaw Method
+            //var rowsAffected = _context.Database
+            //    .ExecuteSqlRaw(
+            //        @"UPDATE Student
+            //          SET Age = {0} 
+            //          WHERE Name = {1}", 29, "Mike Miles");
+            
+            //return Ok(new { RowsAffected = rowsAffected });
+
+            //6.3-Reloaded Method
+            var studentForUpdate = _context.Students
+                .FirstOrDefault(s => s.Name.Equals("Mike Miles"));
+            var age = 28;
+            var rowsAffected = _context.Database
+                .ExecuteSqlRaw(@"UPDATE Student 
+                       SET Age = {0} 
+                       WHERE Name = {1}", age, studentForUpdate.Name);
+            //What if we want it to change after the execution of the ExecuteSqlRaw method? We use the next code row.
+            _context.Entry(studentForUpdate).Reload();
+
+            return Ok(new { RowsAffected = rowsAffected });
+
         }
     }
 }
