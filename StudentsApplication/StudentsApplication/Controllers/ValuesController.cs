@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Entities;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace StudentsApplication.Controllers
 {
@@ -140,7 +141,27 @@ namespace StudentsApplication.Controllers
             _context.Entry(studentForUpdate).Reload();
 
             return Ok(new { RowsAffected = rowsAffected });
+        }
 
+        [HttpPost] //create rows - using '.Add()' method
+        public IActionResult Post([FromBody] Student student)
+        {
+            if (student == null)
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest();
+            _context.Add(student);
+            _context.SaveChanges();
+            return Created("URI of the created entity", student);
+        }
+
+        [HttpPost("postrange")] //create rows - using '.AddRange()' method
+        public IActionResult PostRange([FromBody] IEnumerable<Student> students)
+        {
+            //additional checks
+            _context.AddRange(students);
+            _context.SaveChanges();
+            return Created("URI is going here", students);
         }
     }
 }
